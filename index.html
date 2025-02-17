@@ -28,9 +28,11 @@
             padding: 10px;
             font-size: 16px;
         }
+        #preview {
+            margin-top: 20px;
+        }
         #result {
             display: none;
-            margin-top: 20px;
             max-width: 100%;
             height: auto;
         }
@@ -57,7 +59,9 @@
         <input type="text" id="prompt" placeholder="Enter a prompt">
         <button onclick="generateImage()">Generate</button>
         <button id="toggle-mode" onclick="toggleMode()">Toggle Dark Mode</button>
-        <img id="result" src="" alt="Generated Image">
+        <div id="preview">
+            <img id="result" src="" alt="Generated Image">
+        </div>
         <button id="download" onclick="downloadImage()">Download Image</button>
     </div>
     <script>

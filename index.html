@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Image Generator</h1>
+        <input type="text" id="prompt" placeholder="Enter a prompt">
+        <button onclick="generateImage()">Generate</button>
+        <img id="result" src="" alt="Generated Image">
+    </div>
+    <script>
+        async function generateImage() {
+            const prompt = document.getElementById('prompt').value;
+            
+            // Mock API call
+            const imageUrl = 'https://via.placeholder.com/300.png?text=Generated+Image';
+
+            // Display the generated image
+            document.getElementById('result').src = imageUrl;
+        }
+    </script>
+</body>
+</html>

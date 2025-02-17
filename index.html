@@ -12,9 +12,16 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-color 0.3s;
         }
         .container {
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
         }
         input, button {
             margin: 10px;
@@ -22,9 +29,25 @@
             font-size: 16px;
         }
         #result {
+            display: none;
             margin-top: 20px;
             max-width: 100%;
             height: auto;
+        }
+        #download {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
         }
     </style>
 </head>
@@ -33,9 +56,17 @@
         <h1>AI Image Generator</h1>
         <input type="text" id="prompt" placeholder="Enter a prompt">
         <button onclick="generateImage()">Generate</button>
+        <button id="toggle-mode" onclick="toggleMode()">Toggle Dark Mode</button>
         <img id="result" src="" alt="Generated Image">
+        <button id="download" onclick="downloadImage()">Download Image</button>
     </div>
     <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            const container = document.querySelector('.container');
+            container.classList.toggle('dark-mode');
+        }
+
         async function generateImage() {
             const prompt = document.getElementById('prompt').value;
             
@@ -43,7 +74,24 @@
             const imageUrl = 'https://via.placeholder.com/300.png?text=Generated+Image';
 
             // Display the generated image
-            document.getElementById('result').src = imageUrl;
+            const resultImg = document.getElementById('result');
+            resultImg.src = imageUrl;
+            resultImg.style.display = 'block';
+
+            // Set the image as the background
+            document.body.style.backgroundImage = `url(${imageUrl})`;
+
+            // Show the download button
+            const downloadBtn = document.getElementById('download');
+            downloadBtn.style.display = 'inline-block';
+        }
+
+        function downloadImage() {
+            const imageUrl = document.getElementById('result').src;
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'generated_image.png';
+            link.click();
         }
     </script>
 </body>

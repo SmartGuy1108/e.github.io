@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -62,9 +63,9 @@
             <option value="light">Light Mode</option>
             <option value="dark">Dark Mode</option>
         </select>
-        <div id="preview">
-            <img id="result" src="" alt="Generated Image">
-        </div>
+    </div>
+    <div id="preview" class="container">
+        <img id="result" src="" alt="Generated Image">
         <button id="download" onclick="downloadImage()">Download Image</button>
     </div>
     <script>
@@ -82,7 +83,7 @@
         async function generateImage() {
             const prompt = document.getElementById('prompt').value;
             
-            // Mock API call
+            // Mock API call (replace with actual VQ-VAE-2 API call)
             const imageUrl = 'https://via.placeholder.com/300.png?text=Generated+Image';
 
             // Display the generated image

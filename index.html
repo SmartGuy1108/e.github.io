@@ -73,18 +73,25 @@
             const mode = document.getElementById('mode').value;
             if (mode === 'dark') {
                 document.body.classList.add('dark-mode');
-                document.querySelector('.container').classList.add('dark-mode');
+                document.querySelectorAll('.container').forEach(container => container.classList.add('dark-mode'));
             } else {
                 document.body.classList.remove('dark-mode');
-                document.querySelector('.container').classList.remove('dark-mode');
+                document.querySelectorAll('.container').forEach(container => container.classList.remove('dark-mode'));
             }
         }
 
         async function generateImage() {
             const prompt = document.getElementById('prompt').value;
             
-            // Replace this with your actual API call to a reliable image generation service.
-            const imageUrl = 'https://via.placeholder.com/300.png?text=Generated+Image';
+            const response = await fetch('https://api.pollo.ai/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt })
+            });
+            const data = await response.json();
+            const imageUrl = data.imageUrl;
 
             // Display the generated image
             const resultImg = document.getElementById('result');

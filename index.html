@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earth FPV Shooter Game</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Whack-a-Zombie</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Earth FPV Shooter Game</h1>
-  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="gameContainer">
+    <div id="scoreboard">Score: 0</div>
+    <div id="timer">Time: 30s</div>
+    <div id="gameGrid">
+      <div class="hole" id="hole1"></div>
+      <div class="hole" id="hole2"></div>
+      <div class="hole" id="hole3"></div>
+      <div class="hole" id="hole4"></div>
+      <div class="hole" id="hole5"></div>
+      <div class="hole" id="hole6"></div>
+    </div>
+    <button id="startButton">Start Game</button>
+  </div>
   <script src="game.js"></script>
 </body>
 </html>

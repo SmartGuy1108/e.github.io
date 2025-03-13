@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #87CEEB; /* Sky Blue */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+canvas {
+  border: 2px solid #ffffff;
+  background-color: #228B22; /* Grass Green */
+}

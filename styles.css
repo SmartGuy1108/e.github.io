@@ -1,21 +1,75 @@
 body {
-  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #87CEEB; /* Sky Blue */
-  font-family: Arial, sans-serif;
+  margin: 0;
+  flex-direction: column;
+}
+
+#gameContainer {
   text-align: center;
+}
+
+#scoreboard, #timer {
+  font-size: 24px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#gameGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hole {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  position: relative;
+  border-radius: 50%;
+}
+
+.hole .zombie, .hole .cuteAnimal {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.zombie {
+  background-color: green;
+  border-radius: 50%;
+  background-image: url('zombie.png'); /* Replace with your zombie image */
+  background-size: cover;
+}
+
+.cuteAnimal {
+  background-color: pink;
+  border-radius: 50%;
+  background-image: url('cute-animal.png'); /* Replace with your cute animal image */
+  background-size: cover;
+}
+
+#startButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-canvas {
-  border: 2px solid #ffffff;
-  background-color: #228B22; /* Grass Green */
+#startButton:hover {
+  background-color: #45a049;
 }
